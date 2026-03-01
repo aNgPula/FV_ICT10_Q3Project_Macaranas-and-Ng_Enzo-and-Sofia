@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>List of Players</title>
+
+<style>
+    #ShowPlayers{
+        width:450px;
+		padding: 20px;
+		margin: auto;
+		background-color: rgb(255, 255, 255);
+		box-shadow: 2px 3px 10px rgba(0,0,0, 0.8);
+        justify-content: center;
+    }
+
+    body{
+        margin-top: 150px;
+        background-image: linear-gradient(#ff749e, #ffeca8,#7ae395, #7aa4ff);
+        background-repeat:no-repeat;
+		background-size: cover;
+		background-attachment:fixed;
+        font-family: 'Gill Sans';
+        font-size: 20px;
+    }
+
+    #ButtonForPlayers{
+        background-image: linear-gradient(to right, #ff2b6b, #ffdf6d,#3db85b, #5289ff);
+        width: 350px;
+    }
+
+</style>
+</head>
+<body>
+
+<div id="ShowPlayers">
+
+<center>
+<h1><u>List of Players</u></h1>
+<br>
+<button type="submit" py-click="PlayersList" id="ButtonForPlayers" class="btn btn-dark"><b>SHOW PLAYERS</b></button>
+<br>
+<br>
+<p id="List_Players"></p>
+</center>
+</div>
+
+<script type="py" src="PlayerList.py"></script>
+
+</body>
+</html>
