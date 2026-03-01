@@ -4,16 +4,16 @@ from pyscript import document
 def validate_account(event):
 
     # Get the value entered in the username input field
-    username = document.getElementById("username").value
+    UsernameInput = document.getElementById("username").value
 
     # Get the value entered in the password input field
-    password = document.getElementById("password").value
+    PasswordInput = document.getElementById("password").value
 
     # Get the result <div> where messages will be displayed
-    result = document.getElementById("result")
+    SignUpResult = document.getElementById("result")
 
     # Create an empty list to store error messages
-    messages = []
+    ErrorMessages = []
 
 
     # -------------------------
@@ -21,13 +21,13 @@ def validate_account(event):
     # -------------------------
 
     # Check if username length is less than 7 characters
-    if len(username) < 7:
+    if len(UsernameInput) < 7:
 
         # Calculate how many characters are needed
-        remaining = 7 - len(username)
+        Username_remaining = 7 - len(UsernameInput)
 
         # Add message to the list
-        messages.append(f"Username needs {remaining} more character(s).")
+        ErrorMessages.append(f"Username needs {Username_remaining} more character(s).")
 
 
     # -------------------------
@@ -35,13 +35,13 @@ def validate_account(event):
     # -------------------------
 
     # Check if password length is less than 10 characters
-    if len(password) < 10:
+    if len(PasswordInput) < 10:
 
         # Calculate how many characters are needed
-        remaining = 10 - len(password)
+        Password_remaining = 10 - len(PasswordInput)
 
         # Add message to the list
-        messages.append(f"Password needs {remaining} more character(s).")
+        ErrorMessages.append(f"Password needs {Password_remaining} more character(s).")
 
 
     # -------------------------
@@ -51,11 +51,11 @@ def validate_account(event):
     # Count how many letters are inside the password
     # char.isalpha() returns True if the character is a letter
     # char is short for character
-    letter_count = sum(1 for char in password if char.isalpha())
+    Password_letter_count = sum(1 for char in PasswordInput if char.isalpha())
 
     # If there are no letters
-    if letter_count < 1:
-        messages.append("Password needs at least 1 letter.")
+    if Password_letter_count < 1:
+        ErrorMessages.append("Password needs at least 1 letter.")
 
 
     # -------------------------
@@ -64,11 +64,11 @@ def validate_account(event):
 
     # Count how many digits are inside the password
     # char.isdigit() returns True if the character is a number
-    number_count = sum(1 for char in password if char.isdigit())
+    Password_number_count = sum(1 for char in PasswordInput if char.isdigit())
 
     # If there are no numbers
-    if number_count < 1:
-        messages.append("Password needs at least 1 number.")
+    if Password_number_count < 1:
+        ErrorMessages.append("Password needs at least 1 number.")
 
 
     # -------------------------
@@ -77,19 +77,20 @@ def validate_account(event):
 
     # If there are any messages in the list,
     # it means some requirements are not satisfied
-    if messages:
+    if ErrorMessages:
 
         # Apply Bootstrap styling for error (red text)
-        result.className = "mt-3 text-danger fw-bold"
+        SignUpResult.className = "mt-3 text-danger fw-bold"
 
         # Join all error messages into one string with line breaks
-        result.innerHTML = "<br>".join(messages)
+        SignUpResult.innerHTML = "<br>".join(ErrorMessages)
 
     else:
         # If no errors, it means all conditions are satisfied
 
         # Apply success styling (green text)
-        result.className = "mt-3 text-success fw-bold"
+        SignUpResult.className = "mt-3 text-success fw-bold"
 
         # Display success message
-        result.innerHTML = "Account successfully created!"
+
+        SignUpResult.innerHTML = "Account successfully created!"
