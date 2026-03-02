@@ -20,24 +20,32 @@ def set_theme(team):
     body_color = "#f8fafc"
     btn_color = "#0d6efd"
     btn_text = "white"
+    team_image = ""
 
     # Team-based themes
     if team == "Blue Bears":
         body_color = "#1d4ed8"
         btn_color = "#1e40af"
         btn_text = "white"
+        team_image = "bears.png"
+
     elif team == "Red Bulldogs":
         body_color = "#dc2626"
         btn_color = "#b91c1c"
         btn_text = "white"
+        team_image = "bulldogs.png"
+
     elif team == "Yellow Tigers":
         body_color = "#facc15"
         btn_color = "#eab308"
         btn_text = "black"   # black text is easier to read on yellow
+        team_image = "tigers.png"
+
     elif team == "Green Hornets":
         body_color = "#16a34a"
         btn_color = "#15803d"
         btn_text = "white"
+        team_image = "hornets.png"
 
     # Apply background color to the whole page.
     # (The smooth fade is handled by CSS transition in index.html.)
@@ -49,6 +57,11 @@ def set_theme(team):
     btn.style.backgroundColor = btn_color
     btn.style.borderColor = btn_color
     btn.style.color = btn_text
+
+    # Displays the image based on the input of the user.
+    DisplayedTeamImage = document.getElementById("DisplayOfTeamImage")
+    DisplayedTeamImage.src = team_image
+
 
 
 # ------------------------------------------------------------
